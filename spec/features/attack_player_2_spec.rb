@@ -1,12 +1,13 @@
-feature 'Attack player 2' do
+feature 'Attacking' do
   scenario 'see Player 2' do
     sign_in_and_play
     click_button('Attack')
     expect(page).to have_content 'Dave attacked Mittens'
   end
-  scenario 'see Player 2' do
+  scenario 'reduce Player 2 by 10' do
     sign_in_and_play
     click_button('Attack')
+    expect(page).not_to have_content 'Mittens: 60HP'
     expect(page).to have_content 'Mittens: 50HP'
   end
 end
