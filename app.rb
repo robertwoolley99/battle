@@ -1,7 +1,7 @@
 # in app.#!/usr/bin/env ruby -wKU
 
 require 'sinatra/base'
-require 'player'
+require './lib/player'
 # require File.join(File.dirname(__FILE__),  'app.rb')
 # require 'capybara'
 # require 'capybara/rspec'
@@ -29,8 +29,11 @@ class Battle < Sinatra::Base
   end
 
   get '/attack' do
-    @player_1_name = $player_1_name
-    @player_2_name = $player_2_name
+    @player_1_name = $player_1.name
+    @player_2_name = $player_2.name
+    $player_2.attacked
+    @player_1_hit_points = $player_1.hit_points
+    @player_2_hit_points = $player_2.hit_points
     erb :attack
   end
 
