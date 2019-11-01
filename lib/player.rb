@@ -8,9 +8,9 @@ def initialize(name, hit_points = DEFAULT_HIT_POINTS)
   @hit_points = hit_points
 end
 
-def attack(player)
-  player.receive_damage
-end
+# def attack(player)
+#   player.receive_damage
+# end
 
 def receive_damage
   @hit_points -= 10
