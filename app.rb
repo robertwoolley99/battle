@@ -1,20 +1,16 @@
 # in app.#!/usr/bin/env ruby -wKU
-
 require 'sinatra/base'
 require './lib/player'
 require './lib/game'
+require './lib/attack'
 # require File.join(File.dirname(__FILE__),  'app.rb')
 # require 'capybara'
 # require 'capybara/rspec'
 # require 'rspec'
-
-
-
 class Battle < Sinatra::Base
   enable :sessions
-
   get '/' do
-  erb :index
+    erb :index
   end
 
   post '/names' do
@@ -31,6 +27,7 @@ class Battle < Sinatra::Base
 
   post '/attack' do
     Attack.run($game.opponent_of($game.current_turn))
+<<<<<<< HEAD
     if $game.game_over?
       redirect '/game-over'
     else
@@ -50,6 +47,18 @@ end
     else
       redirect '/attack'
     end
+=======
+     if $game.game_over?
+       redirect '/game-over'
+     else
+       redirect 'attack'
+     end
+  end
+
+  get '/attack' do
+    @game = $game
+    erb :attack
+>>>>>>> 5b90031596cb1530850cd0978e445f57c543125c
   end
 
   post '/switch-turns' do
@@ -58,12 +67,19 @@ end
   end
 
   get '/game-over' do
+<<<<<<< HEAD
   @game = $game
   erb :game_over
 end
+=======
+    @game = $game
+    erb :game_over
+  end
+>>>>>>> 5b90031596cb1530850cd0978e445f57c543125c
 
   # start the server if Ruby file executed directly
   run! if app_file == $0
 end
+
 
 # Capybara.app = Battle

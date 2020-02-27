@@ -1,4 +1,4 @@
-require File.join(File.dirname(__FILE__), '..',  'app.rb')
+require File.join(File.dirname(__FILE__), '..','app.rb')
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
@@ -43,7 +43,7 @@ RSpec.configure do |config|
     # `true` in RSpec 4.
     mocks.verify_partial_doubles = true
   end
-ENV['RACK_ENV'] = 'test'
+  ENV['RACK_ENV'] = 'test'
   # This option will default to `:apply_to_host_groups` in RSpec 4 (and will
   # have no way to turn it off -- the option exists only for backwards
   # compatibility in RSpec 3). It causes shared context metadata to be
